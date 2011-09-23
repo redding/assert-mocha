@@ -1,7 +1,12 @@
-require "assert-mocha/version"
+require 'assert'
+require 'mocha'
 
 module Assert
   module Mocha
-    # Your code goes here...
+    autoload :VERSION, 'assert-mocha/version'
   end
+end
+
+Assert::Context.class_eval do
+  include Mocha::API
 end
