@@ -15,6 +15,6 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = Assert::Mocha::VERSION
 
-  gem.add_dependency("assert",  ["~>0.6.0"])
+  gem.add_dependency("assert",  ["~>0.7"])
   gem.add_dependency("mocha",   ["~>0.10.0"])
 end
