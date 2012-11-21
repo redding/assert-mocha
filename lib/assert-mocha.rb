@@ -1,12 +1,20 @@
 require 'assert'
-require 'mocha'
+require 'mocha/api'
+
+require 'assert-mocha/version'
 
 module Assert
   module Mocha
-    autoload :VERSION, 'assert-mocha/version'
+
+    def self.included(klass)
+      klass.class_eval do
+        include ::Mocha::API
+      end
+    end
+
   end
 end
 
 Assert::Context.class_eval do
-  include Mocha::API
+  include Assert::Mocha
 end
