@@ -1,20 +1,22 @@
 # -*- encoding: utf-8 -*-
-require File.expand_path('../lib/assert-mocha/version', __FILE__)
+lib = File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require "assert-mocha/version"
 
 Gem::Specification.new do |gem|
-  gem.authors       = ["Kelly Redding", "Collin Redding"]
-  gem.email         = ["kelly@kelredd.com"]
+  gem.name          = "assert-mocha"
+  gem.version       = Assert::Mocha::VERSION
+  gem.authors       = ["Collin Redding", "Kelly Redding"]
+  gem.email         = ["collin.redding@me.com, kelly@kellyredding.com"]
   gem.description   = %q{Assert with Mocha}
   gem.summary       = %q{Assert with Mocha}
   gem.homepage      = "https://github.com/redding/assert-mocha"
 
-  gem.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
-  gem.files         = `git ls-files`.split("\n")
-  gem.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
-  gem.name          = "assert-mocha"
+  gem.files         = `git ls-files`.split($/)
+  gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
+  gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ["lib"]
-  gem.version       = Assert::Mocha::VERSION
 
-  gem.add_dependency("assert",  ["~>2.0"])
-  gem.add_dependency("mocha",   ["~>0.13"])
+  gem.add_dependency("assert",  ["~> 2.0"])
+  gem.add_dependency("mocha",   ["~> 0.13"])
 end

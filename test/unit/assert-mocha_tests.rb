@@ -1,8 +1,10 @@
 require 'assert'
+require 'assert/context'
+require 'mocha/api'
 
 module Assert::Mocha
 
-  class BaseTest < Assert::Context
+  class BaseTests < Assert::Context
     desc "Assert::Context"
     setup do
       @class = Assert::Context
@@ -17,7 +19,7 @@ module Assert::Mocha
     end
   end
 
-  class AssertMocksTest < BaseTest
+  class AssertMocksTests < BaseTests
     desc "assert_mocks"
     setup do
       object = Class.new do
