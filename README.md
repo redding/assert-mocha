@@ -7,6 +7,10 @@ The [assert](https://github.com/teaminsight/assert) gem with [mocha](https://git
 Use assert as you normally would. Inherit from a context and use mocha's methods in your tests:
 
 ```ruby
+# in test/helper.rb
+require 'assert-mocha'
+
+# in tests
 class BaseTest < Asset::Context
   desc "some test"
   setup do
@@ -21,6 +25,7 @@ class BaseTest < Asset::Context
   should "call the expected method" do
     assert_nothing_raised{ subject.another_method } # assuming another_method calls #some_method
   end
+
 end
 ```
 
@@ -28,7 +33,7 @@ end
 
 Add this line to your application's Gemfile:
 
-    gem 'logsly'
+    gem 'assert-mocha'
 
 And then execute:
 
@@ -36,7 +41,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install logsly
+    $ gem install assert-mocha
 
 ## Contributing
 
